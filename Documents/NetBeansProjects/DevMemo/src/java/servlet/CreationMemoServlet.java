@@ -87,11 +87,12 @@ public class CreationMemoServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String contenue = request.getParameter("contenue");
+        String priorite = request.getParameter("priorite");
         HttpSession session = request.getSession(true);
         
         User u = (User) session.getAttribute("u");
         
-        Memo m = new Memo(contenue, u);
+        Memo m = new Memo(priorite, contenue, u);
         try {
             MemoDao.insert(m);
             response.sendRedirect("validcreat");

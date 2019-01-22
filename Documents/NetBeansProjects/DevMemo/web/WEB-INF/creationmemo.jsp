@@ -19,13 +19,13 @@
     
    
  <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Niveau de priorité du mémo</label>
-     <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
+     <select name="priorite" class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
     <option selected>Choisir...</option>
-    <option value="1">Minimale</option>
-    <option value="2">Basse</option>
-    <option value="3">Normale</option>
-    <option value="4">Haute</option>
-    <option value="5">Maximale</option>
+    <option value="Minimale">Minimale</option>
+    <option value="Basse">Basse</option>
+    <option value="Normale">Normale</option>
+    <option value="Haute">Haute</option>
+    <option value="Maximale">Maximale</option>
   </select>
   </div>
     

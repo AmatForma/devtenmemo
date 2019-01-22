@@ -37,12 +37,12 @@ public class MemoDao {
 
 
     public static void insert(Memo m) throws SQLException{
-        String sql = "INSERT INTO memo (contenue, iduser) VALUES(?, ?)";
+        String sql = "INSERT INTO memo (priorite, contenue, iduser) VALUES(?, ?, ?)";
         Connection connexion = testBd.getConnection();
         PreparedStatement req = connexion.prepareStatement (sql);
-
-        req.setString(1, m.getContenue());
-        req.setInt(2, m.getUser().getId());
+        req.setString(1, m.getPriorite());
+        req.setString(2, m.getContenue());
+        req.setInt(3, m.getUser().getId());
 
         req.execute();
     }

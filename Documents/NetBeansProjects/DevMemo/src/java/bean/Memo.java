@@ -27,16 +27,13 @@ public class Memo {
         this.user = user;
     }
 
-    
-    
-    
-    
-
-   
-    public Memo(String contenue, User user) {
+    public Memo(String priorite, String contenue, User user) {
+        this.priorite = priorite;
         this.contenue = contenue;
         this.user = user;
     }
+
+    
 
     public String getPriorite() {
         return priorite;
