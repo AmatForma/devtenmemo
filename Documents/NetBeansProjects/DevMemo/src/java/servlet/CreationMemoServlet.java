@@ -8,8 +8,11 @@ package servlet;
 import bean.Memo;
 import bean.User;
 import dao.MemoDao;
+import dao.UserDao;
 import java.io.IOException;
 import java.io.PrintWriter;
+import static java.lang.Integer.parseInt;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -62,16 +65,23 @@ public class CreationMemoServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        HttpSession session = request.getSession(true);        
-        User user = (User) session.getAttribute("u");
-        
+        try {
+            HttpSession session = request.getSession(true);        
+            User user = (User) session.getAttribute("u");
+            List<User> destinataire = UserDao.getAll();
         if (user!= null){
             request.setAttribute("pers", user);
+            request.setAttribute("destinataire", destinataire);
             request.getRequestDispatcher("/WEB-INF/creationmemo.jsp").forward(request, response);
+            
         }
         else{
             request.setAttribute("msg", "Ola, on se connecte avant d'entrer!");
             request.getRequestDispatcher("index.jsp").forward(request, response);
+        }
+        } catch (Exception e){
+            PrintWriter out = response.getWriter();
+            out.println(e.getMessage());
         }
     }
 
@@ -87,6 +97,8 @@ public class CreationMemoServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String contenue = request.getParameter("contenue");
+        String destinataire =request.getParameter("desti");
+        if (destinataire.equals("destinatairenull")){
         HttpSession session = request.getSession(true);
         
         User u = (User) session.getAttribute("u");
@@ -98,6 +110,22 @@ public class CreationMemoServlet extends HttpServlet {
         } catch (Exception e) {
             PrintWriter out = response.getWriter();
             out.println(e.getMessage());
+        }
+        }
+        else{
+            HttpSession session = request.getSession(true);
+        int dest = parseInt(destinataire);
+        User u = (User) session.getAttribute("u");
+        User v = new User();
+        v.setId(dest);
+        Memo m = new Memo(contenue, u, v);
+        try {
+            MemoDao.insertAvecDestinataire(m);
+            response.sendRedirect("validcreat");
+        } catch (Exception e) {
+            PrintWriter out = response.getWriter();
+            out.println(e.getMessage());
+        }
         }
     }
 

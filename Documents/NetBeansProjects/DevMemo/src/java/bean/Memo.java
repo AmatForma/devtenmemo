@@ -16,6 +16,29 @@ public class Memo {
     private String contenue;
     private Date datecreation;
     private User user;
+    private User destinataire;
+
+    public Memo(int id, String contenue, Date datecreation, User user, User destinataire) {
+        this.id = id;
+        this.contenue = contenue;
+        this.datecreation = datecreation;
+        this.user = user;
+        this.destinataire = destinataire;
+    }
+
+    public User getDestinataire() {
+        return destinataire;
+    }
+
+    public void setDestinataire(User destinataire) {
+        this.destinataire = destinataire;
+    }
+
+    public Memo(String contenue, User user, User destinataire) {
+        this.contenue = contenue;
+        this.user = user;
+        this.destinataire = destinataire;
+    }
 
     public Memo(int id, String contenue, Date datecreation, User user) {
         this.id = id;

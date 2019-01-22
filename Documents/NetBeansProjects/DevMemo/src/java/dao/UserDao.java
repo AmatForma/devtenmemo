@@ -8,6 +8,8 @@ package dao;
 import bean.User;
 import java.sql.Connection;
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -32,6 +34,26 @@ public class UserDao {
             rs.getString("mail"));
         }
         
+        return result;
+    }
+    public static List<User> getAll()
+    throws SQLException{
+        List<User> result = new ArrayList();
+        
+        Connection connexion = testBd.getConnection();
+        
+        String sql = "SELECT iduser, mail FROM user";
+        
+        Statement req = connexion.createStatement();
+        
+        ResultSet rs = req.executeQuery(sql);
+        
+        while (rs.next()){
+            User u = new User();
+            u.setMail(rs.getString("mail"));
+            u.setId(rs.getInt("iduser"));
+            result.add(u);
+        }
         return result;
     }
     

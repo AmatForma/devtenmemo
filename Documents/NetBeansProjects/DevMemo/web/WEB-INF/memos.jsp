@@ -21,6 +21,7 @@
                 <th>Contenue</th>
                 <th>Date création</th>
                 <th>mail du créateur</th>
+                <th>mail du destinataire</th>
             </tr>
         </thead>
         <tbody>
@@ -30,6 +31,7 @@
                     <td>${memo.contenue}</td>
                     <td>${memo.datecreation}</td>
                     <td>${memo.user.mail}</td>
+                    <td>${memo.destinataire.mail}</td>
                 </tr>
             </c:forEach>
         </tbody>
