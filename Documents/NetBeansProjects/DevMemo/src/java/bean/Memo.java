@@ -15,13 +15,23 @@ public class Memo {
     private int id;
     private String contenue;
     private Date datecreation;
+    private String priorite;
     private User user;
 
-    public Memo(int id, String contenue, Date datecreation, User user) {
+    public Memo(int id, String contenue, Date datecreation,String priorite, User user) {
         this.id = id;
         this.contenue = contenue;
         this.datecreation = datecreation;
+        this.priorite= priorite;
         this.user = user;
+    }
+
+    public String getPriorite() {
+        return priorite;
+    }
+
+    public void setPriorite(String priorite) {
+        this.priorite = priorite;
     }
 
     public Memo(String contenue, User user) {
