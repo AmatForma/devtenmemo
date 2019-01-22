@@ -32,7 +32,7 @@
                 <li>
                     <a href="#">Trier mémos</a>
                     <ul class="sub-menu">
-                        <li><a href="#">Mémo Perso</a></li>
+                        <li><a href="affichememo">Mémo Perso</a></li>
                         <li><a href="#">Mémo Public</a></li>
                     </ul>
                 </li>

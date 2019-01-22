@@ -47,4 +47,26 @@ public class MemoDao {
         req.execute();
     }
 
+    // ajout de liste de MemoByUser 
+        public static List<Memo> getAllMemoByUser(User us) throws SQLException{
+        String sql = "SELECT m.idmemo, m.contenue, m.datecreation, u.mail FROM memo m INNER JOIN user u ON m.iduser = u.iduser WHERE u.mail =?";
+
+        List<Memo> result = new ArrayList();
+        
+        Connection connexion = testBd.getConnection();
+        PreparedStatement req = connexion.prepareStatement(sql);
+        req.setString(1, us.getMail());
+        req.execute();
+        
+        ResultSet rs = req.executeQuery();
+        
+        while (rs.next()){
+            User u = new User();
+            u.setMail(rs.getString("mail"));
+            Memo m = new Memo(rs.getInt("idmemo"), rs.getString("contenue"), rs.getDate("datecreation"), u);
+            result.add(m);
+        }
+        return result;
+    }
+
 }
