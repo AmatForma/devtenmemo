@@ -12,19 +12,21 @@
   <div class="form-group">
     <label for="contenueMemo">Mémo:</label>
      <div class="dropdown">
-  <button class="btn btn-secondary dropdown-toggle" name="priorite" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    Priorité
-  </button>
-  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-    <a class="dropdown-item" href="#">Minimale</a>
-    <a class="dropdown-item" href="#">Basse</a>
-    <a class="dropdown-item" href="#">Normale</a>
-    <a class="dropdown-item" href="#">Haute</a>
-    <a class="dropdown-item" href="#">Maximale</a>
-  </div>
+  
 </div>
     <textarea type="text" class="form-control" name="contenue" id="contenueMemo" placeholder="Entrer le mémo"></textarea>
     <small class="form-text text-muted">S'il vous plait rentrer le contenu de votre nouveau mémo.</small>
+    
+   
+ <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Niveau de priorité du mémo</label>
+     <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
+    <option selected>Choisir...</option>
+    <option value="1">Minimale</option>
+    <option value="2">Basse</option>
+    <option value="3">Normale</option>
+    <option value="4">Haute</option>
+    <option value="5">Maximale</option>
+  </select>
   </div>
     
   <button type="submit" class="btn btn-primary">Ajouter</button>
