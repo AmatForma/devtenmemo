@@ -18,16 +18,20 @@
         <thead>
             <tr>
                 <th>Id</th>
+                <th>Priorité du message</th>
                 <th>Contenue</th>
                 <th>Date création</th>
+                <th>mail du créateur</th>
             </tr>
         </thead>
         <tbody>
             <c:forEach items="${memos}" var="memo">
                 <tr>
                     <td>${memo.id}</td>
+                    <td>${memo.priorite}</td>
                     <td>${memo.contenue}</td>
                     <td>${memo.datecreation}</td>
+                    <td>${memo.user.mail}</td>
                 </tr>
             </c:forEach>
         </tbody>
