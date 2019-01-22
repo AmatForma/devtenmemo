@@ -27,6 +27,7 @@ CREATE TABLE IF NOT EXISTS `memo` (
   `contenue` text NOT NULL,
   `datecreation` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `iduser` int(11) NOT NULL,
+  `idusercible` int(11),
   PRIMARY KEY (`idmemo`),
   KEY `fk_memo_user_idx` (`iduser`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=31 ;
