@@ -1,12 +1,5 @@
-﻿-- phpMyAdmin SQL Dump
--- version 4.1.14
--- http://www.phpmyadmin.net
---
--- Client :  127.0.0.1
--- Généré le :  Mar 22 Janvier 2019 à 11:12
--- Version du serveur :  5.6.17
--- Version de PHP :  5.5.12
-DROP SCHEMA IF EXISTS devtenmemo
+
+DROP SCHEMA IF EXISTS devtenmemo;
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -69,10 +62,10 @@ INSERT INTO `memo` (`idmemo`, `contenue`, `datecreation`, `iduser`) VALUES
 (24, 'Burn After Reading', '2008-09-15 17:21:13', 12),
 (25, 'Barton Fink', '1991-09-12 16:20:12', 11),
 (26, 'Le Grand Saut', '1994-12-15 19:23:15', 12),
-(27, 'j''espere etre à l''heure pour mon epilation', '2019-01-22 10:20:19', 1),
-(28, 'olala j''ai rendez-vous', '2019-01-22 10:26:30', 1),
-(29, 'coucou anais, quand est ce qu''on mange sushis', '2019-01-22 10:27:07', 1),
-(30, 'mes mémos marchent', '2019-01-22 10:29:37', 1);
+(27, 'j''espere etre à l''heure pour mon epilation', '2019-01-22 10:20:19', 4),
+(28, 'olala j''ai rendez-vous', '2019-01-22 10:26:30', 2),
+(29, 'coucou anais, quand est ce qu''on mange sushis', '2019-01-22 10:27:07', 2),
+(30, 'mes mémos marchent', '2019-01-22 10:29:37', 3);
 
 -- --------------------------------------------------------
 
