@@ -84,8 +84,8 @@ public class ConnexionServlet extends HttpServlet {
                 response.sendRedirect("home");
             }
             else{
-                request.setAttribute("msg", "Votre login ou mot de passe est incorect");
-                request.getRequestDispatcher("index.jsp").forward(request, response);
+                //request.setAttribute("msg", "Votre login ou mot de passe est incorect");
+                request.getRequestDispatcher("/WEB-INF/inscription.jsp").forward(request, response);
             }
         }catch (Exception e){
             PrintWriter out = response.getWriter();
