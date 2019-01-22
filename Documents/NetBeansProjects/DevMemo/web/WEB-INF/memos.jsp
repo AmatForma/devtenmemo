@@ -14,19 +14,22 @@
     <h2>Vous êtes sur la page des mémos</h2>
     <h4>Bonjour ${pers.prenom} ${pers.nom}</h4>
     
-    <table id="example" class="table table-striped table-bordered" style="width:100%">
-        <thead>
+    <table id="example" class="table table-dark table-striped table-bordered" style="width:100%">
+        <thead class="thead-light">
             <tr>
                 <th>Id</th>
+                <th>Priorité du message</th>
                 <th>Contenue</th>
                 <th>Date création</th>
                 <th>mail du créateur</th>
+                
             </tr>
         </thead>
         <tbody>
             <c:forEach items="${memos}" var="memo">
                 <tr>
                     <td>${memo.id}</td>
+                    <td>${memo.priorite}</td>
                     <td>${memo.contenue}</td>
                     <td>${memo.datecreation}</td>
                     <td>${memo.user.mail}</td>

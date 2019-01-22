@@ -20,7 +20,7 @@ public class MemoDao {
         
         Connection connexion = testBd.getConnection();
         
-        String sql = "SELECT m.idmemo, m.contenue, m.datecreation, u.mail FROM memo m INNER JOIN user u ON m.iduser = u.iduser ORDER BY m.idmemo";
+        String sql = "SELECT m.idmemo, m.priorite, m.contenue, m.datecreation, u.mail FROM memo m INNER JOIN user u ON m.iduser = u.iduser ORDER BY m.idmemo";
         
         Statement req = connexion.createStatement();
         
@@ -29,7 +29,7 @@ public class MemoDao {
         while (rs.next()){
             User u = new User();
             u.setMail(rs.getString("mail"));
-            Memo m = new Memo(rs.getInt("idmemo"), rs.getString("contenue"), rs.getDate("datecreation"), u);
+            Memo m = new Memo(rs.getInt("idmemo"), rs.getString("priorite"),  rs.getString("contenue"), rs.getDate("datecreation"), u);
             result.add(m);
         }
         return result;
@@ -37,12 +37,12 @@ public class MemoDao {
 
 
     public static void insert(Memo m) throws SQLException{
-        String sql = "INSERT INTO memo (contenue, iduser) VALUES(?, ?)";
+        String sql = "INSERT INTO memo (priorite, contenue, iduser) VALUES(?, ?, ?)";
         Connection connexion = testBd.getConnection();
         PreparedStatement req = connexion.prepareStatement (sql);
-
-        req.setString(1, m.getContenue());
-        req.setInt(2, m.getUser().getId());
+        req.setString(1, m.getPriorite());
+        req.setString(2, m.getContenue());
+        req.setInt(3, m.getUser().getId());
 
         req.execute();
     }
