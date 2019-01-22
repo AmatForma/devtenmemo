@@ -11,18 +11,17 @@
 
 
 <div class="contenue">
-    <h2>Vous êtes sur la page des mémos</h2>
+    <h2>Voici la liste des memos que vous avez creer </h2>
     <h4>Bonjour ${pers.prenom} ${pers.nom}</h4>
     
-    <table id="example" class="table table-dark table-striped table-bordered" style="width:100%">
-        <thead class="thead-light">
+    <table id="example" class="table table-striped table-bordered" style="width:100%">
+        <thead>
             <tr>
                 <th>Id</th>
                 <th>Priorité du message</th>
                 <th>Contenue</th>
                 <th>Date création</th>
                 <th>mail du créateur</th>
-                <th>mail du destinataire</th>
             </tr>
         </thead>
         <tbody>
@@ -33,7 +32,7 @@
                     <td>${memo.contenue}</td>
                     <td>${memo.datecreation}</td>
                     <td>${memo.user.mail}</td>
-                    <td>${memo.destinataire.mail}</td>
+                    <td></td>
                 </tr>
             </c:forEach>
         </tbody>

@@ -5,6 +5,7 @@
  */
 package dao;
 
+import bean.Memo;
 import bean.User;
 import java.sql.Connection;
 import java.sql.*;
@@ -55,6 +56,19 @@ public class UserDao {
             result.add(u);
         }
         return result;
+    }
+    
+    public static void insert(User u) throws SQLException{
+        String sql = "INSERT INTO user (nom, prenom, mail, mdp) VALUES(?, ?, ?, ?)";
+        Connection connexion = testBd.getConnection();
+        PreparedStatement req = connexion.prepareStatement (sql);
+
+        req.setString(1, u.getNom());
+        req.setString(2, u.getPrenom());
+        req.setString(3, u.getMail());
+        req.setString(4, u.getMdp());
+
+        req.execute();
     }
     
 }

@@ -13,10 +13,28 @@ import java.sql.Date;
  */
 public class Memo {
     private int id;
+    private String priorite;
     private String contenue;
     private Date datecreation;
+
     private User user;
     private User destinataire;
+
+    public Memo(int id, String priorite, String contenue, Date datecreation, User user, User destinataire) {
+        this.id = id;
+        this.priorite = priorite;
+        this.contenue = contenue;
+        this.datecreation = datecreation;
+        this.user = user;
+        this.destinataire = destinataire;
+    }
+
+    public Memo(String priorite, String contenue, User user, User destinataire) {
+        this.priorite = priorite;
+        this.contenue = contenue;
+        this.user = user;
+        this.destinataire = destinataire;
+    }
 
     public Memo(int id, String contenue, Date datecreation, User user, User destinataire) {
         this.id = id;
@@ -40,17 +58,30 @@ public class Memo {
         this.destinataire = destinataire;
     }
 
-    public Memo(int id, String contenue, Date datecreation, User user) {
+    public Memo(int id, String priorite, String contenue, Date datecreation, User user) {
         this.id = id;
+        this.priorite = priorite;
         this.contenue = contenue;
         this.datecreation = datecreation;
         this.user = user;
     }
 
-    public Memo(String contenue, User user) {
+    public Memo(String priorite, String contenue, User user) {
+        this.priorite = priorite;
         this.contenue = contenue;
         this.user = user;
     }
+
+    
+
+    public String getPriorite() {
+        return priorite;
+    }
+
+    public void setPriorite(String priorite) {
+        this.priorite = priorite;
+    }
+    
     
 
     public int getId() {
